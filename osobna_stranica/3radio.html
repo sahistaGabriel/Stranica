@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .velika {
+            display: none;
+        }
+
+        .velika img {
+            width: 600px;
+            height: 600px;
+            object-fit: cover;
+        }
+
+        .mala {
+            width: 200px;
+            height: 200px;
+
+        }
+
+        .mala img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        input {
+            display: none;
+        }
+
+        p {
+            display: none;
+        }
+
+        input:checked~.velika {
+            display: block;
+        }
+
+        .velika {
+            position: absolute;
+            left: 200px;
+            top: 0px;
+        }
+
+        .velika:hover p {
+            display: block;
+            position: absolute;
+            top: 20%;
+            left: 0;
+            background-color: white;
+            width: 100%;
+            padding: 2px;
+            text-align: center;
+            font-size: 20pt;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <label for="prva" class="mala">
+                <img src="1.jpg" alt="">
+            </label>
+            <input type="radio" name="enlarged" id="prva">
+            <div class="velika">
+                <img src="1.jpg" alt="">
+                <p>kajak 1</p>
+            </div>
+
+
+        </div>
+        <div class="wrapper">
+            <label for="druga" class="mala">
+                <img src="2.jpg" alt="">
+            </label>
+            <input type="radio" name="enlarged" id="druga">
+            <div class="velika">
+                <img src="2.jpg" alt="">
+                <p>kajak 2</p>
+
+            </div>
+        </div>
+        <div class="wrapper">
+            <label for="treca" class="mala">
+                <img src="3.jpg" alt="">
+            </label>
+            <input type="radio" name="enlarged" id="treca">
+            <div class="velika">
+                <img src="3.jpg" alt="">
+                <p>kajak 3</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

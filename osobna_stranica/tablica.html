@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #32312f;
+            font-family: sans-serif;
+        }
+
+        .table-container {
+            padding: 0 10%;
+            margin: 40px auto 0;
+        }
+
+        .heading {
+            font-size: 40px;
+            text-align: center;
+            color: #f1f1f1;
+            margin-bottom: 40px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table thead {
+            background-color: #ee2828;
+        }
+
+        .table thead tr th {
+            font-size: 14pt;
+            font-weight: medium;
+            letter-spacing: 0.35px;
+            color: #fff;
+            opacity: 1;
+            padding: 12px;
+            vertical-align: top;
+            border: 1px solid #bd1b41;
+        }
+
+
+        .table tbody tr td {
+            font-size: 14pt;
+            font-weight: normal;
+            letter-spacing: 0.35px;
+            color: #f1f1f1;
+            padding: 8px;
+            text-align: center;
+            background-color: #3c3f44;
+            border: 1px solid #bd1b41;
+        }
+
+        .btn {
+            width: 130px;
+            text-decoration: none;
+            line-height: 35px;
+            background-color: #ff1046;
+            display: inline-block;
+            color: #fff;
+            text-align: center;
+            vertical-align: biddle;
+            border: 1px solid transparent;
+            font-size: 14px;
+            opacity: 1;
+        }
+
+        @media(max-width:768px) {
+            .table-container {
+                padding: 1%;
+            }
+
+            .table thead {
+                display: none;
+            }
+
+            .table,
+            .table tbody,
+            .table tr,
+            table td {
+                display: block;
+                width: 100%;
+            }
+
+            .table tr {
+                margin-bottom: 15px;
+            }
+
+            .table tbody tr td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+
+            .table td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 15px;
+                font-weight: 600;
+                font-size: 14px;
+                text-align: left;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="table-container">
+        <h1 class="heading">Raspored</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Početak</th>
+                    <th>Kraj</th>
+                    <th>Tip treninga</th>
+                    <th>Status</th>
+                    <th>Upis</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label1="početak">1.1.2045</td>
+                    <td data-label="kraj">1.12.2045</td>
+                    <td data-label="tip">anaerobni</td>
+                    <td data-label="status">aktivan</td>
+                    <td data-label="upis"><a href="" class="btn">aktiviraj</a></td>
+                </tr>
+                <tr>
+                    <td data-label="početak">1.1.2045</td>
+                    <td data-label="kraj">1.12.2045</td>
+                    <td data-label="tip">anaerobni</td>
+                    <td data-label="status">aktivan</td>
+                    <td data-label="upis"><a href="" class="btn">aktiviraj</a></td>
+                </tr>
+                <tr>
+                    <td data-label="početak">1.1.2045</td>
+                    <td data-label="kraj">1.12.2045</td>
+                    <td data-label="tip">anaerobni</td>
+                    <td data-label="status">aktivan</td>
+                    <td data-label="upis"><a href="" class="btn">aktiviraj</a></td>
+                </tr>
+                <tr>
+                    <td data-label="početak">1.1.2045</td>
+                    <td data-label="kraj">1.12.2045</td>
+                    <td data-label="tip">anaerobni</td>
+                    <td data-label="status">aktivan</td>
+                    <td data-label="upis"><a href="" class="btn">aktiviraj</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

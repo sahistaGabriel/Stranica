@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-color: darkcyan;
+            --ultra-color: rgb(2, 89, 89);
+            --light-color: lightcyan;
+            --medium-color: rgb(101, 210, 210);
+        }
+
+        .container {
+            width: 50%;
+            margin: 40px auto;
+            border: 3px dotted var(--dark-color);
+            padding: 20px;
+            border-radius: 10px;
+            background-color: var(--medium-color);
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        /* dizajn elemenata forme */
+        input[type="text"],
+        input[type="password"],
+        input[type="date"],
+        input[type="email"] {
+            background-color: var(--light-color);
+            border-radius: 5px;
+            border: 1px solid var(--dark-color);
+            color: var(--dark-color);
+            padding: 4px 10px;
+            width: 200px;
+        }
+
+        input[type="number"] {
+            background-color: var(--light-color);
+            border-radius: 5px;
+            border: 1px solid var(--dark-color);
+            color: var(--dark-color);
+            padding-left: 10px;
+        }
+
+        h1,
+        table {
+            color: var(--ultra-color);
+        }
+
+        /* za postavljanje checkboxa na absolute */
+        input {
+            position: relative;
+        }
+
+        input[type="checkbox"] {
+            /* brisanje postojećeg formatiranja*/
+         
+            background-color: var(--light-color);
+            box-shadow: 2px 2px 2px var(--ultra-color);
+            border: none;
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            position: relative;
+            margin-right: 5px;
+        }
+
+
+
+        input[type="submit"] {
+            background-color: var(--ultra-color);
+            color: var(--light-color);
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        input:focus {
+            outline: none;
+            box-shadow: 1px 1px 1px 1px black;
+        }
+
+        input[type=number]:focus,
+        input[type=radio]:focus,
+        input[type=range]:focus {
+            box-shadow: none;
+            color: var(--dark-color);
+        }
+
+        input::placeholder {
+            color: var(--dark-color);
+        }
+
+        input:focus::placeholder {
+            color: var(--medium-color);
+        }
+
+        /* obavezno postavljanje position-rel jer td tag u protivnom neće biti
+        tretiran kao parent od input i p taga */
+        td {
+            position: relative;
+        }
+
+        td p {
+            display: none;
+            position: absolute;
+            background-color: white;
+            font-size: 12px;
+            border: 2px solid var(--light-color);
+            border-radius: 5px;
+            /*kako bi paragraf bio širok onoliko koliko sadrži teksta */
+            width: auto;
+            white-space: nowrap;
+        }
+
+        input:hover~p {
+            display: block;
+            left: 80%;
+            top: -5px;
+            z-index: 1;
+        }
+
+        @media (max-width:800px) {
+            .container {
+                width: 100%;
+                padding: 1px;
+            }
+
+            form {
+                display: block;
+                width: 90%;
+            }
+
+            table,
+            tr,
+            td {
+                width: 100%;
+            }
+
+            td {
+                display: block;
+            }
+
+            input[type="text"],
+            input[type="password"],
+            input[type="date"],
+            input[type="email"] {
+                width: 100%;
+                display: block;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="">
+            <h1>Osobni podaci</h1>
+            <table>
+                <tr>
+                    <td><label for="">ime</label></td>
+                    <td><input type="text" name="ime" required placeholder="unesite ime" id=""></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email">email</label>
+
+                    </td>
+                    <td>
+                        <input type="email" name="email" placeholder="unesite email">
+                        <p>Unesite email</p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="lozinka">lozinka</label>
+                    </td>
+                    <td>
+                        <input type="password" id="lozinka" placholder="unesite lozinku">
+                        <p>Unesite lozinku</p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="datum">datum</label>
+                    </td>
+                    <td>
+                        <input type="date" name="" id="datum">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="ocjena">Ocjena</label></td>
+                    <td><input type="range" name="" min="1" max="5" id=""></td>
+                </tr>
+                <tr>
+                    <td><label for="prosjek">prosjek</label></td>
+                    <td><input type="number" name="" min="1" max="5" step="0.1" id=""></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2>Predmeti</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="" id="" value="Matematika">
+                    </td>
+                    <td> Matematika</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="" id="" value="Engleski">
+                    </td>
+                    <td> Engleski</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="" id="" value="Programiranje">
+                    </td>
+                    <td> Programiranje</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="color">Favorite Color:</label>
+                    </td>
+                    <td> <input type="color" id="color" name="color"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h2>Odaberite spol</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">Ž</label></td>
+                    <td><input type="radio" name="spol" value="Pošalji"></td>
+                </tr>
+                <tr>
+                    <td><label for="">M</label></td>
+                    <td><input type="radio" name="spol" value="Pošalji"></td>
+                </tr>
+                <tr>
+                    <td><label for="">Drugo</label></td>
+                    <td><input type="radio" name="spol" value="Pošalji"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Pošalji"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</body>
+
+</html>

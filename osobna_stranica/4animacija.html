@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .mala {
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+
+        .mala img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .velika,
+        p {
+            position: absolute;
+            left: -200px;
+            top: 0;
+            width: 400px;
+            z-index: -1;
+            animation: reverseAnimacija 2s linear 0s 1 normal forwards;
+        }
+
+        .velika img {
+            width: 400px;
+        }
+
+        @keyframes animacija {
+            0% {
+                left: -200px;
+                top: 0;
+            }
+
+            100% {
+                left: 200px;
+            }
+        }
+
+        @keyframes animacija1 {
+            0% {
+                left: -200px;
+                top: 100px;
+            }
+
+            100% {
+                left: 370px;
+                top: 100px;
+            }
+        }
+     
+
+        .mala:hover .velika {
+            animation: animacija 2s linear 0s 1 normal forwards;
+        }
+
+        .mala:hover p {
+            animation: animacija1 2s linear 1s 1 normal forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="mala">
+                <img src="1.jpg" alt="">
+                <div class="velika">
+                    <img src="kajak4.jpg" alt="">
+                </div>
+                <p>Kajak 1</p>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="mala">
+                <img src="2.jpg" alt="">
+                <div class="velika">
+                    <img src="kajak5.jpg" alt="">
+                </div>
+                <p>Kajak 2</p>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="mala">
+                <img src="3.jpg" alt="">
+                <div class="velika">
+                    <img src="kajak6.jpg" alt="">
+                </div>
+                <p>Kajak 3</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
