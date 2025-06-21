@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            background-color:black;
+            color: white;
+            position: relative;
+        }
+        .logo{
+            padding: 20px;
+        }
+
+        input {
+            display: none;
+        }
+
+        label {
+            display: none;
+            height: 30px;
+
+        }
+
+        label img {
+            height: 30px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        ul {
+            list-style: none;
+            position: relative;
+        }
+
+        ul>li {
+            display: inline-block;
+            padding: 20px;
+
+            position: relative;
+        }
+
+        ul>li ul {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+        }
+
+        ul li:hover {
+            color: white;
+            background-color: gray;
+        }
+
+        ul>li:hover ul {
+            display: block;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        ul li ul li {
+            display: block;
+        }
+
+        body {
+            background-color: rgb(33, 31, 31);
+            font-family: sans-serif;
+        }
+
+        .table-container {
+            padding: 0 10%;
+            margin: 40px auto 0;
+        }
+
+        .heading {
+            font-size: 40px;
+            text-align: center;
+            color: #f1f1f1;
+            margin-bottom: 40px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table thead {
+            background-color: black;
+        }
+
+        .table thead tr th {
+            font-size: 14pt;
+            font-weight: medium;
+            letter-spacing: 0.35px;
+            color: #fff;
+            opacity: 1;
+            padding: 12px;
+            vertical-align: top;
+            border: 1px solid white;
+        }
+
+
+        .table tbody tr td {
+            font-size: 14pt;
+            font-weight: normal;
+            letter-spacing: 0.35px;
+            color: #f1f1f1;
+            padding: 8px;
+            text-align: center;
+            background-color: black;
+            border: 1px solid ;
+        }
+
+        .btn {
+            width: 130px;
+            text-decoration: none;
+            line-height: 35px;
+            background-color: #ff1046;
+            display: inline-block;
+            color: #fff;
+            text-align: center;
+            vertical-align: biddle;
+            border: 1px solid transparent;
+            font-size: 14px;
+            opacity: 1;
+        }
+        holder {
+            color: var(--medium-color);
+        }
+
+        /* obavezno postavljanje position-rel jer td tag u protivnom neće biti
+        tretiran kao parent od input i p taga */
+        td {
+            position: relative;
+        }
+
+        td p {
+            display: none;
+            position: absolute;
+            background-color: white;
+            font-size: 12px;
+            border: 2px solid var(--light-color);
+            border-radius: 5px;
+            /*kako bi paragraf bio širok onoliko koliko sadrži teksta */
+            width: auto;
+            white-space: nowrap;
+        }
+
+        input:hover~p {
+            display: block;
+            left: 80%;
+            top: -5px;
+            z-index: 1;
+        }
+        
+
+        @media (max-width:800px) {
+            .container {
+                width: 100%;
+
+            }
+
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            label {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: calc(100% - 30px);
+            }
+
+            .nav {
+                flex-direction: column;
+            }
+
+            ul {
+                display: none;
+            }
+
+            ul li {
+                width: 100%;
+                padding: 0;
+                border-bottom: 1px solid red;
+            }
+
+            ul>li ul {
+                position: relative;
+                margin: 0;
+                padding: 0;
+                border: 0px;
+            }
+
+            ul>li ul>li {
+                border-bottom: 1px dashed var(--color_dark);
+
+            }
+
+            input:checked~ul {
+                display: block;
+            }
+            
+        }
+    </style>
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            background-color:black;
+            color: white;
+            position: relative;
+        }
+        .logo{
+            padding: 20px;
+        }
+
+        input {
+            display: none;
+        }
+
+        label {
+            display: none;
+            height: 30px;
+
+        }
+
+        label img {
+            height: 30px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        ul {
+            list-style: none;
+            position: relative;
+        }
+
+        ul>li {
+            display: inline-block;
+            padding: 20px;
+
+            position: relative;
+        }
+
+        ul>li ul {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+        }
+
+        ul li:hover {
+            color: white;
+            background-color: gray;
+        }
+
+        ul>li:hover ul {
+            display: block;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        ul li ul li {
+            display: block;
+        }
+
+        body {
+            background-color: rgb(33, 31, 31);
+            font-family: sans-serif;
+        }
+
+        .table-container {
+            padding: 0 10%;
+            margin: 40px auto 0;
+        }
+
+        .heading {
+            font-size: 40px;
+            text-align: center;
+            color: #f1f1f1;
+            margin-bottom: 40px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table thead {
+            background-color: black;
+        }
+
+        .table thead tr th {
+            font-size: 14pt;
+            font-weight: medium;
+            letter-spacing: 0.35px;
+            color: #fff;
+            opacity: 1;
+            padding: 12px;
+            vertical-align: top;
+            border: 1px solid white;
+        }
+
+
+        .table tbody tr td {
+            font-size: 14pt;
+            font-weight: normal;
+            letter-spacing: 0.35px;
+            color: #f1f1f1;
+            padding: 8px;
+            text-align: center;
+            background-color: black;
+            border: 1px solid ;
+        }
+
+        .btn {
+            width: 130px;
+            text-decoration: none;
+            line-height: 35px;
+            background-color: #ff1046;
+            display: inline-block;
+            color: #fff;
+            text-align: center;
+            vertical-align: biddle;
+            border: 1px solid transparent;
+            font-size: 14px;
+            opacity: 1;
+        }
+        
+
+        @media (max-width:800px) {
+            .container {
+                width: 100%;
+
+            }
+
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            label {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: calc(100% - 30px);
+            }
+
+            .nav {
+                flex-direction: column;
+            }
+
+            ul {
+                display: none;
+            }
+
+            ul li {
+                width: 100%;
+                padding: 0;
+                border-bottom: 1px solid red;
+            }
+
+            ul>li ul {
+                position: relative;
+                margin: 0;
+                padding: 0;
+                border: 0px;
+            }
+
+            ul>li ul>li {
+                border-bottom: 1px dashed var(--color_dark);
+
+            }
+
+            input:checked~ul {
+                display: block;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+</head>
+
+<body>
+    <div class="container">
+
+        <nav>
+            <input type="checkbox" id="checkbox">
+            <div class="logo">
+                <h2>Političari</h2>
+            </div>
+            <ul>
+                <li><a href="">HDZ</a>
+                <ul>
+                        <li><a href="">Andrej Plenković</a></li>
+                        <li><a href="">Gordan Jandroković</a></li>
+                        <li><a href="">Mario Banožić</a></li>
+                    </ul></li>
+                <li><a href="">SDP</a>
+                    <ul>
+                        <li><a href="">Zoran Milanović</a></li>
+                        <li><a href="">Peđa Grbin</a></li>
+                        <li><a href="">Davor Bernardić</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Ključ Hrvatske</a>
+                <ul>
+                        <li><a href="">Ivan Pernar</a></li>
+                    </ul></li>
+                <li><a href="">Možemo</a>
+                    <ul>
+                        <li><a href="">Tomislav Tomašević</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Domovinski pokret</a>
+                    <ul>
+                 <li><a href=""> Ivan Penava</a></li>
+            </ul>
+        </nav>
+        <label for="checkbox"><img src="hamburger.png" alt=""></label>
+    </div>
+     <div class="table-container">
+        <h1 class="heading">Političari</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Stranka</th>
+                    <th>Ime</th>
+                    <th>Prezime</th>
+                    <th>Datum rođenja</th>
+                    <th>Slika</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label1="Stranka">HDZ</td>
+                    <td data-label="Ime">Andrej</td>
+                    <td data-label="Prezime">Plenković</td>
+                    <td data-label="Datum rođenja">8.4.1970.</td>
+                    <td><img src="andrej_plenkovic.jpg" alt="slika"></td>
+                </tr>
+                 <tr>
+                    <td data-label1="Stranka">HDZ</td>
+                    <td data-label="Ime">Gordan</td>
+                    <td data-label="Prezime">Jandroković</td>
+                    <td data-label="Datum rođenja">2.8.1967.</td>
+                    <td><img src="gordan_jandrokovic.jpg" alt="slika"></td>
+                </tr>
+                <tr>
+                    <td data-label1="Stranka">HDZ</td>
+                    <td data-label="Ime">Mario</td>
+                    <td data-label="Prezime">Banožić</td>
+                    <td data-label="Datum rođenja">10.3.1979.</td>
+                    <td><img src="mario_banozic.jpg" alt="slika"></td>
+                </tr>
+                 <tr>
+                    <td data-label1="Stranka">SDP</td>
+                    <td data-label="Ime">Zoran</td>
+                    <td data-label="Prezime">Milanović</td>
+                    <td data-label="Datum rođenja">30.10.1966.</td>
+                    <td><img src="zoran_milanovic.jpg" alt="slika"></td>
+                </tr>
+                  <tr>
+                    <td data-label1="Stranka">SDP</td>
+                    <td data-label="Ime">Peđa</td>
+                    <td data-label="Prezime">Grbin</td>
+                    <td data-label="Datum rođenja">24.5.1979.</td>
+                    <td><img src="peda_grbin.jpg" alt="slika"></td>
+                </tr>
+                 <tr>
+                    <td data-label1="Stranka">SDP</td>
+                    <td data-label="Ime">Davor</td>
+                    <td data-label="Prezime">Bernardić</td>
+                    <td data-label="Datum rođenja">5.1.1980.</td>
+                    <td><img src="davor_bernardic.jpg" alt="slika"></td>
+                </tr>
+                 <tr>
+                    <td data-label1="Stranka">Ključ Hrvatske</td>
+                    <td data-label="Ime">Ivan</td>
+                    <td data-label="Prezime">Pernar</td>
+                    <td data-label="Datum rođenja">14.10.1985.</td>
+                    <td><img src="ivan_pernar.jpg" alt="slika"></td>
+                </tr>
+                 <tr>
+                    <td data-label1="Stranka">Možemo</td>
+                    <td data-label="Ime">Tomislav</td>
+                    <td data-label="Prezime">Tomašević</td>
+                    <td data-label="Datum rođenja">13.1.1982.</td>
+                    <td><img src="tomislav_tomasevic.jpg" alt="slika"></td>
+                </tr>
+                 <tr>
+                    <td data-label1="Stranka">Domovinski pokret</td>
+                    <td data-label="Ime">Ivan</td>
+                    <td data-label="Prezime">Penava</td>
+                    <td data-label="Datum rođenja">31.12.1974.</td>
+                    <td><img src="ivan_penava.jpg" alt="slika"></td>
+                </tr>
+            </tbody>
+        </table>
+
+</body>
+</html>
